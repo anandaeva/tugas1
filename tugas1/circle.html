@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Lingkaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Kalkulator Lingkaran</h2>
+        <label for="radius">Masukkan Jari-jari (r):</label>
+        <input type="number" id="radius" placeholder="Masukkan jari-jari">
+        <button onclick="hitungLingkaran()">Hitung</button>
+        <p id="diameter"></p>
+        <p id="circumference"></p>
+        <p id="area"></p>
+    </div>
+
+    <script>
+        function hitungLingkaran() {
+            let r = document.getElementById("radius").value;
+            if (r > 0) {
+                let diameter = 2 * r;
+                let circumference = 2 * Math.PI * r;
+                let area = Math.PI * r * r;
+                document.getElementById("diameter").innerText = "Diameter: " + diameter;
+                document.getElementById("circumference").innerText = "Circumference: " + circumference.toFixed(4);
+                document.getElementById("area").innerText = "Luas: " + area.toFixed(4);
+            } else {
+                alert("Masukkan angka yang valid!");
+            }
+        }
+    </script>
+</body>
+</html>
+

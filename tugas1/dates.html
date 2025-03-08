@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Selisih Hari</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Kalkulator Selisih Hari</h2>
+        <label for="date1">Masukkan Tanggal Pertama:</label>
+        <input type="date" id="date1">
+        <label for="date2">Masukkan Tanggal Kedua:</label>
+        <input type="date" id="date2">
+        <button onclick="hitungSelisihHari()">Hitung</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function hitungSelisihHari() {
+            let date1 = new Date(document.getElementById("date1").value);
+            let date2 = new Date(document.getElementById("date2").value);
+            
+            if (!isNaN(date1) && !isNaN(date2)) {
+                let selisih = Math.abs((date2 - date1) / (1000 * 60 * 60 * 24));
+                document.getElementById("result").innerText = "Selisih Hari: " + selisih;
+            } else {
+                alert("Masukkan tanggal yang valid!");
+            }
+        }
+    </script>
+</body>
+</html>
